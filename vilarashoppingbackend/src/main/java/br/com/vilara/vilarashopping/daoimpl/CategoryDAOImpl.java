@@ -32,7 +32,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		categories.add(category);
 		
 		category = new Category();
-		category.setId(1);
+		category.setId(3);
 		category.setName("Laptop");
 		category.setDescription("This is the some description about laptop");
 		category.setUmageURL("CAT_3.png");
@@ -43,6 +43,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public List<Category> list() {
 		return categories;
+	}
+
+	@Override
+	public Category get(int id) {
+	for(Category category : categories) {
+		if(category.getId() == id) return category;
+	}
+	return null;
 	}
 
 }
