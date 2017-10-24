@@ -1,17 +1,39 @@
 package br.com.vilara.vilarashopping.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Category {
 
 	/**
 	 * Private fields
 	 */
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String name;
+	
 	private String description;
-	private String umageURL;
+	
+	@Column(name="image_url")
+	private String imageURL;
+	
+
+	@Column(name="is_active")
 	private boolean active = true;
 
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL
+				+ ", active=" + active + "]";
+	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -37,11 +59,11 @@ public class Category {
 	}
 
 	public String getUmageURL() {
-		return umageURL;
+		return imageURL;
 	}
 
 	public void setUmageURL(String umageURL) {
-		this.umageURL = umageURL;
+		this.imageURL = umageURL;
 	}
 
 	public boolean isActive() {

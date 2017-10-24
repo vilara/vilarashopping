@@ -12,7 +12,8 @@ import br.com.vilara.vilarashopping.dto.Category;
 @Controller
 public class PageController {
 	
-	@Autowired CategoryDAO categoryDAO;
+	@Autowired 
+	CategoryDAO categoryDAO;
 	
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index() {
