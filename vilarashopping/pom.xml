@@ -15,6 +15,14 @@
 
 
 	<dependencies>
+
+		<dependency>
+			<groupId>br.com.vilara</groupId>
+			<artifactId>vilarashoppingbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		
 		<!-- JAVA EE API -->
 
 		<dependency>
@@ -39,15 +47,15 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
-				<!-- JSTL -->
+
+		<!-- JSTL -->
 
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 
 
 	</dependencies>
