@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.vilara.vilarashopping.dao.CategoryDAO;
 import br.com.vilara.vilarashopping.dto.Category;
 
-@Repository("categoryDAO")
+@Repository("CategoryDAO")
 @Transactional
 public class CategoryDAOImpl implements CategoryDAO {
 

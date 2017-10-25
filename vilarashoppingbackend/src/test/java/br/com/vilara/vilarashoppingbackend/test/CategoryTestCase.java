@@ -25,11 +25,11 @@ public class CategoryTestCase {
 		context.scan("br.com.vilara.vilarashopping");
 		context.refresh();
 		
-		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
+		categoryDAO = (CategoryDAO) context.getBean("CategoryDAO");
 				
 	}
 	
-	/*@Test
+/*	@Test
 	public void testCategory() {
 		category = new Category();
 		
@@ -41,7 +41,7 @@ public class CategoryTestCase {
 		
 	}*/
 	
-	/*@Test
+/*	@Test
 	public void testGetCategory() {
 		category = categoryDAO.get(1);
 		assertEquals("Success fetched a single category from the table", "Television", category.getName());
@@ -75,5 +75,7 @@ public class CategoryTestCase {
 	public void testCRUDCategory() {
 		
 	}*/
+	
+	
 
 }
