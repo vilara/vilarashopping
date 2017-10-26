@@ -113,7 +113,7 @@ public class Product {
 	}
 
 
-	public boolean isActive() {
+	public boolean getIsActive() {
 		return isActive;
 	}
 
