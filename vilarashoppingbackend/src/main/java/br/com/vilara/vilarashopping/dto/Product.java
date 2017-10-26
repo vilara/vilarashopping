@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Product {
 	
@@ -22,6 +24,7 @@ public class Product {
 	private String code;
 	private String name;
 	private String brand;
+	@JsonIgnore
 	private String description;
 	
 	@Column(name = "unit_price")
@@ -29,12 +32,15 @@ public class Product {
 	private int quatity;
 	
 	@Column(name= "is_active")
+	@JsonIgnore
 	private boolean isActive;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Category categoryId;
 	
 	@ManyToOne
+	@JsonIgnore
 	private User_detail supplierId;
 	
 	private int purchases;

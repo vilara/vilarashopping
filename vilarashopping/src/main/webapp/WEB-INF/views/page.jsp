@@ -20,12 +20,19 @@
 <title>VilaraShopping - ${title}</title>
 <script type="text/javascript">
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
+	
 </script>
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
+
 <!-- Bootstrap core readable Theme -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!-- Bootstrap Datatles Theme -->
+<link href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" rel="stylesheet">
+
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
@@ -62,16 +69,22 @@
 			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true }">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
-
+			
+			<!-- Load only when user clicks show product -->
+			<c:if test="${userClickShowProduct == true }">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
 		</div>
-
+		
+		
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
 
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.js"></script>
-		<script src="${js}/myapp.js"></script>
 		<script src="${js}/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+		<script src="${js}/myapp.js"></script>
 		
 	</div>
 </body>

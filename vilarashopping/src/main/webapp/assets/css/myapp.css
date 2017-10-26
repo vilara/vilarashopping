@@ -18,3 +18,14 @@ body {
 .content {
 	min-height: 100%;
 }
+
+
+#tt {
+	
+	border : solid;
+}
+
+.dataTbleImg {
+	width: 100px;
+	height: 100px;
+}
