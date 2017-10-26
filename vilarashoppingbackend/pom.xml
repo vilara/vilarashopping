@@ -79,9 +79,10 @@
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
-
 			</exclusions>
 		</dependency>
+
+
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<!-- Jackson -->
@@ -97,6 +98,17 @@
 			<version>${jackson.version}</version>
 		</dependency>
 
+		<!-- logback-classic -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.8.0-beta0</version>
+		</dependency>
 
 	</dependencies>
 	<build>
