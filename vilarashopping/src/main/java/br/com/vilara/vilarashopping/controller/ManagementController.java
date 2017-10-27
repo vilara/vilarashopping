@@ -43,11 +43,11 @@ public class ManagementController {
 		Product nProduct = new Product();
 		
 		
-		User_detail user = new User_detail();
-		user.setId(2);
+	//	User_detail user = new User_detail();
+	//	user.setId(2);
 		
-		Category cat = new Category();
-		cat.setId(1);
+	//	Category cat = new Category();
+	//	cat.setId(1);
 		
 		//set few of the fields
 	//	nProduct.setSupplierId(user);

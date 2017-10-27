@@ -42,12 +42,12 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public boolean add(Product product) {
 		try {
-			Category cat = new Category();
-			cat.setId(1);
-			User_detail use = new User_detail();
-			use.setId(1);
-			product.setCategoryId(cat);
-			product.setSupplierId(use);
+		//	Category cat = new Category();
+		//	cat.setId(1);
+		//	User_detail use = new User_detail();
+		//	use.setId(1);
+		//	product.setCategoryId(cat);
+		//	product.setSupplierId(use);
 			sessionFactory.getCurrentSession().persist(product);
 			return true;
 		} catch (Exception e) {
