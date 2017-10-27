@@ -1,11 +1,15 @@
 package br.com.vilara.vilarashopping.controller;
 
+import java.beans.PropertyEditor;
+import java.security.acl.Group;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,9 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.vilara.vilarashopping.dao.CategoryDAO;
 import br.com.vilara.vilarashopping.dao.ProductDAO;
+import br.com.vilara.vilarashopping.daoimpl.CategoryDAOImpl;
 import br.com.vilara.vilarashopping.dto.Category;
 import br.com.vilara.vilarashopping.dto.Product;
-import br.com.vilara.vilarashopping.dto.User_detail;
 
 @Controller
 @RequestMapping(value="/manage")
@@ -81,5 +85,6 @@ public class ManagementController {
 		return categoryDAO.list();
 		
 	}
+	
 
 }

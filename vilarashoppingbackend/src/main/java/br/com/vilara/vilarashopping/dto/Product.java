@@ -1,5 +1,6 @@
 package br.com.vilara.vilarashopping.dto;
 
+import java.beans.PropertyEditorSupport;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -7,13 +8,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.vilara.vilarashopping.dao.CategoryDAO;
+
 @Entity
-public class Product {
+public class Product{
 	
+		
 	/**
 	 * Private fields
 	 */
@@ -37,6 +42,7 @@ public class Product {
 	
 	@ManyToOne
 	@JsonIgnore
+	@JoinColumn(name="categoryId_id")
 	private Category categoryId;
 	
 	@ManyToOne
@@ -176,6 +182,7 @@ public class Product {
 				+ views + "]";
 	}
 	
+
 	
 	
 
