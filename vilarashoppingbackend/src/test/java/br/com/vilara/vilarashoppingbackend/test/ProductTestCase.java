@@ -45,19 +45,19 @@ public class ProductTestCase {
 	}
 	
 	
-/*	@Test
+	@Test
 	public void testCRUDProduct() {
 		
 		category = new Category();
-		category.setId(3);
+		category.setId(1);
 		
 		userDetail = new User_detail();
-		userDetail.setId(3);
+		userDetail.setId(1);
 		
 		product = new Product();
 		
-		product = productDAO.get(16);
-		product.setId(21);
+		/*product = productDAO.get(16);
+		product.setId(22);*/
 		
 		// create operation
 		product.setName("Brasil");
@@ -71,7 +71,7 @@ public class ProductTestCase {
 		product.setViews(1);
 		product.setQuatity(4);
 		assertEquals("Success added a product inside the table", true, productDAO.add(product));
-	}*/
+	}
 
 	
 	/*	@Test

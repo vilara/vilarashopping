@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.vilara.vilarashopping.dao.CategoryDAO;
 import br.com.vilara.vilarashopping.dao.ProductDAO;
 import br.com.vilara.vilarashopping.dto.Category;
 import br.com.vilara.vilarashopping.dto.Product;
+import br.com.vilara.vilarashopping.dto.User_detail;
 
 @Repository("ProductDAO")
 @Transactional
@@ -42,6 +42,12 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public boolean add(Product product) {
 		try {
+			Category cat = new Category();
+			cat.setId(1);
+			User_detail use = new User_detail();
+			use.setId(1);
+			product.setCategoryId(cat);
+			product.setSupplierId(use);
 			sessionFactory.getCurrentSession().persist(product);
 			return true;
 		} catch (Exception e) {

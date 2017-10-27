@@ -166,6 +166,15 @@ public class Product {
 	public String getCode() {
 		return code;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", brand=" + brand + ", description="
+				+ description + ", unitPrice=" + unitPrice + ", quatity=" + quatity + ", isActive=" + isActive
+				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", purchases=" + purchases + ", views="
+				+ views + "]";
+	}
 	
 	
 	
