@@ -45,7 +45,7 @@ public class ProductTestCase {
 	}
 	
 	
-	@Test
+/*	@Test
 	public void testCRUDProduct() {
 		
 		category = new Category();
@@ -56,8 +56,8 @@ public class ProductTestCase {
 		
 		product = new Product();
 		
-		/*product = productDAO.get(16);
-		product.setId(22);*/
+		product = productDAO.get(16);
+		product.setId(22);
 		
 		// create operation
 		product.setName("Brasil");
@@ -65,13 +65,13 @@ public class ProductTestCase {
 		product.setDescription("This the some description oppo mobile phones!");
 		product.setUnitPrice(25000);
 		product.setActive(true);
-		product.setCategoryId(category);
+		product.setCategoryId("1");
 		product.setSupplierId(userDetail);
 		product.setPurchases(1);
 		product.setViews(1);
 		product.setQuatity(4);
 		assertEquals("Success added a product inside the table", true, productDAO.add(product));
-	}
+	}*/
 
 	
 	/*	@Test
@@ -111,14 +111,16 @@ public class ProductTestCase {
 	
 /*		@Test
 	public void testActiveProductsByCategory() {
-		assertEquals("Success list of  products from the table",3, productDAO.listActiveProductsByCategory(3).size());
+		assertEquals("Success list of  products from the table",1, productDAO.listActiveProductsByCategory(2).size());
 		
-	}*/
+	}
+	*/
 	
-	/*		@Test
-	public void testActiveProductsByCategory() {
-		assertEquals("Success list of  products from the table",3, productDAO.getLatestActiveProducts(3).size());
+	
+			@Test
+	public void listActiveProductsByCategory() {
+		assertEquals("Success list of  products from the table",1, productDAO.listActiveProductsByCategory(2).size());
 		
-	}*/
+	}
 	
 }

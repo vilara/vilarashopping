@@ -18,7 +18,8 @@ import br.com.vilara.vilarashopping.dao.CategoryDAO;
 @Entity
 public class Product{
 	
-		
+
+	
 	/**
 	 * Private fields
 	 */
@@ -34,23 +35,22 @@ public class Product{
 	
 	@Column(name = "unit_price")
 	private double unitPrice;
-	private int quatity;
+	private int quantity;
 	
 	@Column(name= "is_active")
 	@JsonIgnore
 	private boolean isActive;
 	
-	@ManyToOne
+	@Column(name= "category_id")
 	@JsonIgnore
-	@JoinColumn(name="categoryId_id")
-	private Category categoryId;
+	private int categoryId;
 	
 	@ManyToOne
 	@JsonIgnore
 	private User_detail supplierId;
 	
-	private int purchases;
-	private int views;
+	private int purchases = 0;
+	private int views = 0;
 	
 	
 	public Product() {
@@ -109,13 +109,13 @@ public class Product{
 	}
 
 
-	public int getQuatity() {
-		return quatity;
+	public int getQuantity() {
+		return quantity;
 	}
 
 
-	public void setQuatity(int quatity) {
-		this.quatity = quatity;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 
@@ -129,12 +129,15 @@ public class Product{
 	}
 
 
-	public Category getCategoryId() {
+
+
+
+	public int getCategoryId() {
 		return categoryId;
 	}
 
 
-	public void setCategoryId(Category categoryId) {
+	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 
@@ -177,7 +180,7 @@ public class Product{
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", brand=" + brand + ", description="
-				+ description + ", unitPrice=" + unitPrice + ", quatity=" + quatity + ", isActive=" + isActive
+				+ description + ", unitPrice=" + unitPrice + ", quantity=" + quantity + ", isActive=" + isActive
 				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", purchases=" + purchases + ", views="
 				+ views + "]";
 	}

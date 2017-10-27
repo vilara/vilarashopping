@@ -72,12 +72,12 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="quatity">Enter
-								the quatity</label>
+							<label class="control-label col-md-4" for="quantity">Enter
+								the quantity</label>
 							<div class="col-md-8">
-								<sf:input type="number" path="quatity" id="quatity"
-									placeholder="Enter the quatity" class="form-control" />
-								<em class="help-block">Please enter the quatity!</em>
+								<sf:input type="number" path="quantity" id="quantity"
+									placeholder="Enter the quantity" class="form-control" />
+								<em class="help-block">Please enter the quantity!</em>
 							</div>
 						</div>
 
@@ -85,9 +85,9 @@
 							<label class="control-label col-md-4" for="categoryId">Select
 								Category:</label>
 							<div class="col-md-8">
-								<%-- <sf:select class="form-control" path="categoryId" id="categoryId" items="${categories}"
+								<sf:select class="form-control" path="categoryId" id="categoryId" items="${categories}"
 								itemLabel="name"
-								itemValue="id" /> --%>
+								itemValue="id" />
 								
 							
 							</div>

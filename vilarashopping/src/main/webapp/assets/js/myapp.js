@@ -11,58 +11,75 @@ $(function() {
 				+ window.categoryId + '/products';
 	}
 
-	$table.DataTable({
+	$table
+			.DataTable({
 
-		lenghtMenu : [ [ 3, 5, 10, -1 ],
-				[ '3 Records', '5 Records', '10 records', 'ALL' ] ],
-		pageLenght : 5,
-		ajax : {
-			url : jsonUrl,
-			dataSrc : ''
-		},
-		columns : [{
-			data : 'code',
-			bSortable: false,
-			mRender: function(data, type, row){
-				return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="dataTbleImg"/>';
-			}
-		}, {
-			data : 'name'
-		}, {
-			data : 'brand'
-		}, {
-			data : 'unitPrice',
-			mRender : function(data, type, row){
-				return '&#8377; ' + data
-			}
-		}, {
-			data : 'quatity',
-			mRender : function(data, type, row){
-				if(data < 1){
-					return '<span style="color:red">Out of Stock!</span>';
-				}
-				return data;
-			}
-		}, {
-			data : 'id',
-			bSortable: false,
-			mRender: function(data, type, row){
-				
-				var str = '';
-				str += '<a href="'+window.contextRoot+ '/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>  ';
-				
-				if(row.quatity < 1){
-					
-					str += '<a href="javascript:void(0)" class="btn btn-success disabled"><strike><span class="glyphicon glyphicon-shopping-cart"></span></strike></a>';
-				}else{
-					
-					str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
-				}
-				
-				return str;
-			}
-		} ]
-	});
+				lenghtMenu : [ [ 3, 5, 10, -1 ],
+						[ '3 Records', '5 Records', '10 records', 'ALL' ] ],
+				pageLenght : 5,
+				ajax : {
+					url : jsonUrl,
+					dataSrc : ''
+				},
+				columns : [
+						{
+							data : 'code',
+							bSortable : false,
+							mRender : function(data, type, row) {
+								return '<img src="' + window.contextRoot
+										+ '/resources/images/' + data
+										+ '.jpg" class="dataTbleImg"/>';
+							}
+						},
+						{
+							data : 'name'
+						},
+						{
+							data : 'brand'
+						},
+						{
+							data : 'unitPrice',
+							mRender : function(data, type, row) {
+								return '&#8377; ' + data
+							}
+						},
+						{
+							data : 'quantity',
+							mRender : function(data, type, row) {
+								if (data < 1) {
+									return '<span style="color:red">Out of Stock!</span>';
+								}
+								return data;
+							}
+						},
+						{
+							data : 'id',
+							bSortable : false,
+							mRender : function(data, type, row) {
+
+								var str = '';
+								str += '<a href="'
+										+ window.contextRoot
+										+ '/show/'
+										+ data
+										+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>  ';
+
+								if (row.quantity < 1) {
+
+									str += '<a href="javascript:void(0)" class="btn btn-success disabled"><strike><span class="glyphicon glyphicon-shopping-cart"></span></strike></a>';
+								} else {
+
+									str += '<a href="'
+											+ window.contextRoot
+											+ '/cart/add/'
+											+ data
+											+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+								}
+
+								return str;
+							}
+						} ]
+			});
 
 })
 
@@ -83,7 +100,7 @@ $(function() {
 	case 'All Products':
 		$('#listProducts').addClass('active');
 		break;
-		
+
 	case 'Manage Products':
 		$('#manageProducts').addClass('active');
 		break;
@@ -100,9 +117,9 @@ $(function() {
 
 var $alert = $('.alert');
 
-if($alert.length){
-	setTimeout(function(){
+if ($alert.length) {
+	setTimeout(function() {
 		$alert.fadeOut('slow')
 	}, 3000)
-	
+
 }

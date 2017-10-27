@@ -44,20 +44,20 @@
 
 			<c:choose>
 
-				<c:when test="${product.quatity < 1}">
+				<c:when test="${product.quantity < 1}">
 					<h6>
 						Quantity Available: <span style="color:red">Out of Stock</span>
 					</h6>
 				</c:when>
 				<c:otherwise>
-					<h6>Quantity Available: ${product.quatity }</h6>
+					<h6>Quantity Available: ${product.quantity }</h6>
 				</c:otherwise>
 
 			</c:choose>
 
 			<c:choose>
 
-				<c:when test="${product.quatity < 1}">
+				<c:when test="${product.quantity < 1}">
 						<a href="javascript:void(0)" class="btn btn-success disabled "><strike>
 								<span class="glyphicon glyphicon-shopping-cart"></span>Add to
 								Cart
