@@ -119,7 +119,7 @@ public class ProductTestCase {
 	
 			@Test
 	public void listActiveProductsByCategory() {
-		assertEquals("Success list of  products from the table",1, productDAO.listActiveProductsByCategory(2).size());
+		assertEquals("Success list of  products from the table",2, productDAO.listActiveProductsByCategory(2).size());
 		
 	}
 	

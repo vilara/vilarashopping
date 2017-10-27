@@ -106,8 +106,7 @@
 						<!-- Hidden fields for products -->
 						<sf:hidden path="id" />
 						<sf:hidden path="code" />
-						<%-- <sf:hidden path="supplierId" />
-						<sf:hidden path="categoryId" /> --%>
+						
 						<sf:hidden path="purchases" />
 						<sf:hidden path="views" />
 						<sf:hidden path="isActive" />

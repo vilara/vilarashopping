@@ -72,7 +72,7 @@ public class ManagementController {
 	public String handlingManageProducts(@ModelAttribute("product") Product mProduct) {
 		logger.info(mProduct.toString());
 				// create a new product record
-		
+		mProduct.setActive(true);
 		productDAO.add(mProduct);
 		
 		return "redirect:/manage/products?operation=product";
