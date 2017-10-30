@@ -78,7 +78,15 @@ $(function() {
 
 								return str;
 							}
-						} ]
+						} ],
+						
+					/*Materila Design	*/
+				columnDefs : [ {
+					targets : [ 0, 1, 2 ],
+					className : 'mdl-data-table__cell--non-numeric'
+				} ]
+				
+				
 			});
 
 })

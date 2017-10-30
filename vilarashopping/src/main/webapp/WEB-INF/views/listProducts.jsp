@@ -46,6 +46,9 @@
 
 					<table class="table table-striped" cellspacing="0" width="100%"
 						id="productListTable">
+						
+						<!-- Material Design  -->
+					<!-- 	<table id="productListTable" class="mdl-data-table" width="100%" cellspacing="0"> -->
 
 						<thead>
 							<tr>

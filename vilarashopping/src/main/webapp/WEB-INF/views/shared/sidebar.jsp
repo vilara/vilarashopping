@@ -1,6 +1,6 @@
 
 
-<h1 class="my-4">Categories</h1>
+<p class="lead">Categories</p>
 <div class="list-group">
 
 <c:forEach items="${categories}" var="category">
