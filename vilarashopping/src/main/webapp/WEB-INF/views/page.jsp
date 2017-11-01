@@ -31,7 +31,7 @@
 
 <!-- Custom styles for this template -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
-<%-- <link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet"> --%>
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
 <!-- Bootstrap Datatles Theme -->
 <link
 	href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"

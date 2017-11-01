@@ -1,15 +1,16 @@
 package br.com.vilara.vilarashopping.controller;
 
-import java.beans.PropertyEditor;
-import java.security.acl.Group;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,9 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.vilara.vilarashopping.dao.CategoryDAO;
 import br.com.vilara.vilarashopping.dao.ProductDAO;
-import br.com.vilara.vilarashopping.daoimpl.CategoryDAOImpl;
 import br.com.vilara.vilarashopping.dto.Category;
 import br.com.vilara.vilarashopping.dto.Product;
+import br.com.vilara.vilarashopping.util.FileUploadUtility;
 
 @Controller
 @RequestMapping(value="/manage")
@@ -69,11 +70,28 @@ public class ManagementController {
 	}
 	// handling product submission
 	@RequestMapping(value="/products", method=RequestMethod.POST)
-	public String handlingManageProducts(@ModelAttribute("product") Product mProduct) {
+	public String handlingManageProducts(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model, 
+			HttpServletRequest request) {
+		
+		// check if there are any errors
+		
+		if (results.hasErrors()) {
+			
+			model.addAttribute("userClickManageProducts", true);
+			model.addAttribute("title", "Manage Products");
+			model.addAttribute("message", "Failed for the upload the product");
+			
+			return "page";
+		}
+		
 		logger.info(mProduct.toString());
 				// create a new product record
 		mProduct.setActive(true);
 		productDAO.add(mProduct);
+		
+		if(!mProduct.getFile().getOriginalFilename().equals("")) {
+			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+		}
 		
 		return "redirect:/manage/products?operation=product";
 	}
