@@ -48,6 +48,8 @@
 
 <body>
 
+<div class="wrapper">
+
 	<!-- Navigation -->
 
 	<%@include file="./shared/navbar.jsp"%>
@@ -94,7 +96,7 @@
 	<!-- Footer -->
 	<%@include file="./shared/footer.jsp"%>
 	<!-- /.container -->
-
+</div>
 	<script src="${js}/jquery.js"></script>
 	<script src="${js}/bootstrap.min.js"></script>
 	
