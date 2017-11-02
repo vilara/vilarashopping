@@ -102,6 +102,8 @@
 	
 	<!-- Datatable basic -->
 	<script	src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+	<!-- Bootbox -->
+	<script	src="${js}/bootbox.min.js"></script>
     
 	
 	

@@ -93,3 +93,8 @@ custom elements  */
 .help-block {
 	color: #ff0000;
 }
+
+.adminDataTableImg {
+	height: 50px;
+	width: 50px;
+}

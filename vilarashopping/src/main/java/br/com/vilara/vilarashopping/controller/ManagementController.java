@@ -22,6 +22,7 @@ import br.com.vilara.vilarashopping.dao.ProductDAO;
 import br.com.vilara.vilarashopping.dto.Category;
 import br.com.vilara.vilarashopping.dto.Product;
 import br.com.vilara.vilarashopping.util.FileUploadUtility;
+import br.com.vilara.vilarashopping.validator.ProductValidatorClass;
 
 @Controller
 @RequestMapping(value="/manage")
@@ -73,6 +74,7 @@ public class ManagementController {
 	public String handlingManageProducts(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model, 
 			HttpServletRequest request) {
 		
+		new ProductValidatorClass().validate(mProduct, results);
 		// check if there are any errors
 		
 		if (results.hasErrors()) {

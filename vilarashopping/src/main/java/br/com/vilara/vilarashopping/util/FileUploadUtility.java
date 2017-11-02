@@ -41,7 +41,7 @@ public class FileUploadUtility {
 			
 			file.transferTo(new File(ABS_PATH + code + ".jpg"));
 		} catch (IOException e) {
-			
+			e.printStackTrace();
 		}
 		
 		
