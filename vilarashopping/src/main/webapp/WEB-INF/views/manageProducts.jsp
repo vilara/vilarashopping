@@ -22,7 +22,7 @@
 
 				<div class="panel-heading">
 					<h4>Product Management</h4>
-
+					
 				</div>
 
 				<div class="panel panel-body">
@@ -40,6 +40,16 @@
 								<sf:errors path="name" cssClass="help-block" element="em" />
 							</div>
 						</div>
+						
+							<%-- <div class="form-group">
+							<label class="control-label col-md-4" for="code">Enter
+								product Code</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="code" id="code"
+									placeholder="Code" class="form-control" />
+								<sf:errors path="code" cssClass="help-block" element="em" />
+							</div>
+						</div> --%>
 
 						<div class="form-group">
 							<label class="control-label col-md-4" for="brand">Enter

@@ -49,6 +49,11 @@ public class Product{
 	@JsonIgnore
 	private int categoryId;
 	
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+
 	@ManyToOne
 	@JsonIgnore
 	private User_detail supplierId;
