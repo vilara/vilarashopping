@@ -143,7 +143,8 @@
 					<thead>
 						<tr>
 							<th>Id</th>
-							<th>&#160;</th>
+							<th>Img</th>
+							<th>Brand</th>
 							<th>Name</th>
 							<th>Quantity</th>
 							<th>Unit Price</th>
@@ -154,7 +155,7 @@
 
 					</thead>
 
-					<tbody>
+					<%-- 		<tbody>
 						<tr>
 							<td>4</td>
 							<td><img class="adminDataTableImg"
@@ -195,11 +196,12 @@
 							</a></td>
 						</tr>
 
-					</tbody>
+					</tbody> --%>
 
 					<tfoot>
 						<th>Id</th>
-						<th>&#160;</th>
+						<th>Img</th>
+						<th>Brand</th>
 						<th>Name</th>
 						<th>Quantity</th>
 						<th>Unit Price</th>
