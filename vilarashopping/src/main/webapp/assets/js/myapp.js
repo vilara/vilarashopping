@@ -183,111 +183,124 @@ $(document)
 					// -------
 
 					var $adminProductstable = $('#adminProductsTable');
-					var jsonUrl = window.contextRoot
-							+ '/json/data/admin/all/products';
+					var jsonUrl = window.contextRoot + '/json/data/admin/all/products';
 					$adminProductstable.DataTable({
 
-						lengthMenu : [
-								[ 10, 30, 50, -1 ],
-								[ '10 Records', '30 Records', '50 records',
-										'ALL' ] ],
-						pageLength : 5,
-						ajax : {
-							url : jsonUrl,
-							dataSrc : ''
-						},
-						columns : [ {
-							data : 'id'
-						}, {
-							data : 'code', 
-							bSortable : false,
-							mRender : function(data, type, row) { return '<img src="' + window.contextRoot + '/resources/images/' +data + '.jpg" class="adminDataTableImg"/>'; } },
-								 {
-							data : 'brand'
-						}, {
-							data : 'name'
-						}, {
-							data : 'quantity',
-							mRender : function(data, type, row) { if (data < 1) {
-								 return '<span style="color:red">Out of Stock!</span>'; }
-							 return data; 
-							}
-						}, {
-							data : 'unitPrice'
-						}, {
-							data : 'isActive', 
-							bSortable : false,
-							mRender : function(data, type, row)
-							{ 
-							  var str = ''; 
-							  str += '<label class="switch">'; 
-							  
-							  if (data) {
-								
-								  str += '<input type="checkbox" checked="checked" value="'+row.id+'" />';
-							}else{
-								
-								str += '<div class="slider"></div></label>';
-							}
-							  return str;
-							}
-						}, {
-							data : 'id',
-							bSortable : false,
-							mRender : function(data, type, row)
-							{ 
-								var str = ''; 
-								  str += '<a href="' + window.contextRoot + '/manage/'+data+'/product" class="btn btn-warning"> <span	class="glyphicon glyphicon-pencil"></span></a>'; 
-								return str;
-							}
-							
-						}
-						
+								lengthMenu : [
+										[ 10, 30, 50, -1 ],
+										[ '10 Records', '30 Records',
+												'50 records', 'ALL' ] ],
+								pageLength : 5,
+								ajax : {
+									url : jsonUrl,
+									dataSrc : ''
+								},
+								columns : [
+										{
+											data : 'id'
+										},
+										{
+											data : 'code',
+											bSortable : false,
+											mRender : function(data, type, row) {
+												return '<img src="'
+														+ window.contextRoot
+														+ '/resources/images/'
+														+ data
+														+ '.jpg" class="adminDataTableImg"/>';
+											}
+										},
+										{
+											data : 'brand'
+										},
+										{
+											data : 'name'
+										},
+										{
+											data : 'quantity',
+											mRender : function(data, type, row) {
+												if (data < 1) {
+													return '<span style="color:red">Out of Stock!</span>';
+												}
+												return data;
+											}
+										},
+										{
+											data : 'unitPrice'
+										},
+										{
+											data : 'isActive',
+											bSortable : false,
+											mRender : function(data, type, row) {
+												var str = '';
+												str += '<label class="switch">';
 
-						], 
-						
-						initComplete: function(){
-							var api = this.api();
-							api.$('.switch input[type="checkbox"]')
-							.on(
-									'change',
-									function() {
+												if (data) {
 
-										var checked = $(checkbox).prop(
-												'checked');
-										var checkbox = $(this);
-										var dMsg = (checked) ? 'You want to activete the product'
-												: "You want to desactive the product";
+													str += '<input id="active" type="checkbox" checked="checked" value="'
+															+ row.id + '" />';
+												} else {
+													str += '<input id="active" type="checkbox" value="'
+														+ row.id + '" />';
+												}
+												str += '<div class="slider"></div></label>';
+												
+												return str;
+											}
+										},
+										{
+											data : 'id',
+											bSortable : false,
+											mRender : function(data, type, row) {
+												var str = '';
+												str += '<a href="'
+														+ window.contextRoot
+														+ '/manage/'
+														+ data
+														+ '/product" class="btn btn-warning"> <span	class="glyphicon glyphicon-pencil"></span></a>';
+												return str;
+											}
 
-										var value = checkbox.prop('value');
+										}
 
-										bootbox
-												.confirm({
-													size : 'medium',
-													title : 'Product actvation & desactivation',
-													message : dMsg,
-													callback : function(
-															confirmed) {
-														if (confirmed) {
-															console.log(value);
-															bootbox
-																	.alert({
-																		size : 'medium',
-																		title : 'Information',
-																		message : 'You are going to perform operation on product'
-																				+ value
-																	});
-														} else {
-															checkbox.prop(
-																	'checked',
-																	!checked)
-														}
-													}
+								],
 
-												});
-									});
-						}
-					
+								initComplete : function() {
+									var api = this.api();
+									api.$('.switch input[type="checkbox"]').on('change',function() {
 
-					});
+														var checked = $("#active").prop('checked');
+														var checkbox = $(this);
+														var dMsg = (checked) ? 'You want to activete the product' : "You want to desactive the product";
+														var value = checkbox.prop('value');
+
+														bootbox.confirm({
+																	size : 'medium',
+																	title : 'Product actvation & desactivation',
+																	message : dMsg,
+																	callback : function(confirmed) {
+																		if (confirmed) {
+																			console.log(value);
+																			
+																			var activationUrl = window.contextRoot + '/manage/product/' + value + '/activation';
+																			
+																			$.post(activationUrl, function(data){
+																				bootbox.alert({
+																					size : 'medium',
+																					title : 'Information',
+																					message : data
+																				});
+																			});
+																			
+																			
+																		} else {
+																			checkbox.prop('checked',!checked)
+																		}
+																	}
+
+																});
+													});
+								}
+
+							});
 				});
