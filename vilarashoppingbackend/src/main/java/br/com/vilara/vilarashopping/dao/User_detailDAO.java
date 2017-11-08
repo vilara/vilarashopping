@@ -10,13 +10,14 @@ public interface User_detailDAO {
 	
 	// add an user
 	boolean addUser(User_detail user);
+	User_detail getByEmail(String email);
 	
 	
 	// add an address
 	boolean addAddress(Address address);
 	
 	
-	// add a cart
-	boolean addCart(Cart cart);
+	// update a cart
+	boolean updateCart(Cart cart);
 
 }

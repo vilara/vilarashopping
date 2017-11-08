@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cart {
@@ -17,8 +19,10 @@ public class Cart {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="user_id")
-	private int userId;
+	/* ----------------------*/
+	@OneToOne
+	private User_detail user;
+	/* ----------------------*/
 	
 	@Column(name="grand_total")
 	private double grandTotal;
@@ -34,12 +38,12 @@ public class Cart {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User_detail getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User_detail user) {
+		this.user = user;
 	}
 
 	public double getGrandTotal() {
