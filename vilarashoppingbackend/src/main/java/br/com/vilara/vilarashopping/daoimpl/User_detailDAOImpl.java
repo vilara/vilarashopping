@@ -1,5 +1,7 @@
 package br.com.vilara.vilarashopping.daoimpl;
 
+import java.util.List;
+
 import org.h2.engine.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +63,42 @@ public class User_detailDAOImpl implements User_detailDAO {
 					.createQuery(selectQuery, User_detail.class)
 						.setParameter("email", email)
 							.getSingleResult();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return null;
+		}
+	}
+
+	@Override
+	public Address getBillingsAddress(User_detail user) {
+		String selectQuery = "FROM Address WHERE user = :user AND billing = :billing";
+		try {
+			return
+			sessionFactory.getCurrentSession()
+				.createQuery(selectQuery, Address.class)
+					.setParameter("user", user)
+						.setParameter("billing", true)
+							.getSingleResult();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return null;
+		}
+	}
+
+	@Override
+	public List<Address> listshippingAddresses(User_detail user) {
+		String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
+		try {
+			return
+			sessionFactory.getCurrentSession()
+				.createQuery(selectQuery, Address.class)
+					.setParameter("user", user)
+						.setParameter("shipping", true)
+							.getResultList();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

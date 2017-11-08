@@ -1,6 +1,6 @@
 package br.com.vilara.vilarashopping.dao;
 
-import org.h2.engine.User;
+import java.util.List;
 
 import br.com.vilara.vilarashopping.dto.Address;
 import br.com.vilara.vilarashopping.dto.Cart;
@@ -15,6 +15,8 @@ public interface User_detailDAO {
 	
 	// add an address
 	boolean addAddress(Address address);
+	Address getBillingsAddress(User_detail user);
+	List<Address> listshippingAddresses(User_detail user);
 	
 	
 	// update a cart
