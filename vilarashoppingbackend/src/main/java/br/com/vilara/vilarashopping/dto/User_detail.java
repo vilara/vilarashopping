@@ -1,9 +1,12 @@
 package br.com.vilara.vilarashopping.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.Table;
 
 @Entity
 public class User_detail {
@@ -15,13 +18,17 @@ public class User_detail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String first_name;
-	private String last_name;
-	private String role;
-	private boolean enabled;
-	private String password;
+	@Column(name="first_name")
+	private String firstName;
+	@Column(name="last_name")
+	private String lastName;
 	private String email;
-	private String contact_number;
+	@Column(name="contact_number")
+	private String contactNumber;
+	
+	private String role;
+	private String password;
+	private boolean enabled = true;
 	
 	public int getId() {
 		return id;
@@ -30,16 +37,16 @@ public class User_detail {
 		this.id = id;
 	}
 	public String getFirst_name() {
-		return first_name;
+		return firstName;
 	}
 	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+		this.firstName = first_name;
 	}
 	public String getLast_name() {
-		return last_name;
+		return lastName;
 	}
 	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+		this.lastName = last_name;
 	}
 	public String getRole() {
 		return role;
@@ -66,10 +73,14 @@ public class User_detail {
 		this.email = email;
 	}
 	public String getContact_number() {
-		return contact_number;
+		return contactNumber;
 	}
 	public void setContact_number(String contact_number) {
-		this.contact_number = contact_number;
+		this.contactNumber = contact_number;
+	}
+	@Override
+	public String toString() {
+		return "User_detail [id=" + id + ", first_name=" + firstName + ", last_name=" + lastName + ", role=" + role + ", enabled=" + enabled + ", password=" + password + ", email=" + email + ", contact_number=" + contactNumber + "]";
 	}
 	
 	

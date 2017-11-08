@@ -52,7 +52,9 @@ public class ManagementController {
 		
 		nProduct.setViews(0);
 		nProduct.setPurchases(0);
+		
 		mv.addObject("product", nProduct);
+		
 		if (operation != null) {
 			if (operation.equals("product")) {
 				mv.addObject("message", "Product Submitted Successfully!");
@@ -70,6 +72,7 @@ public class ManagementController {
 
 		mv.addObject("userClickManageProducts", true);
 		mv.addObject("title", "Manage Products");
+		
 		// fetch the product from the database
 		Product nProduct = productDAO.get(id);
 
@@ -90,9 +93,9 @@ public class ManagementController {
 		if (mProduct.getId() == 0) {
 			new ProductValidatorClass().validate(mProduct, results);			
 		}else {
-			/*if (!mProduct.getFile().getOriginalFilename().equals("")) {
+			if (!mProduct.getFile().getOriginalFilename().equals("")) {
 				new ProductValidatorClass().validate(mProduct, results);	
-			}*/
+			}
 		}
 		// check if there are any errors
 
@@ -106,6 +109,7 @@ public class ManagementController {
 		}
 
 		logger.info(mProduct.toString());
+		
 		// create a new product record
 		if (mProduct.getId() == 0) {
 			mProduct.setActive(true);
