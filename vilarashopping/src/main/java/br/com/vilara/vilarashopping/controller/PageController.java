@@ -82,7 +82,7 @@ public class PageController {
 	}
 	
 	/**
-	 * Viewing a jsingle product
+	 * Viewing a single product
 	 */
 	
 	@RequestMapping(value = "/show/{id}/product")
@@ -104,25 +104,13 @@ public class PageController {
 		return mv;
 	}
 	
-	/*
-	@RequestMapping(value="/test")
-	public ModelAndView test(@RequestParam(value="greeting", required=false)String greeting) {
-		if (greeting == null) {
-			greeting = "Hello there";
-		}
+   /* having a similar mapping to our flow id*/
+	
+	@RequestMapping(value="/register")
+	public ModelAndView register() {
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("greeting", greeting);
+		mv.addObject("title", "Singn Up");
 		return mv;
 	}
-	
-	@RequestMapping(value="/test/{greeting}")
-	public ModelAndView test(@PathVariable("greeting")String greeting) {
-		if (greeting == null) {
-			greeting = "Hello there";
-		}
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("greeting", greeting);
-		return mv;
-	}*/
 
 }
