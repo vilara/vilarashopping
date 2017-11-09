@@ -1,5 +1,7 @@
 package br.com.vilara.vilarashopping.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +13,15 @@ import javax.persistence.OneToOne;
 import org.hibernate.engine.spi.CascadeStyle;
 
 @Entity
-public class User_detail {
+public class User_detail implements Serializable {
 	
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Private fields
 	 */

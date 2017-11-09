@@ -4,16 +4,37 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
                           
+                    
+   <!-- is the variables that flow --> 
+   
+   <var name="user" class="br.com.vilara.vilarashopping.dto.User_detail"/>                
+   <var name="billing" class="br.com.vilara.vilarashopping.dto.Address"/>                
+                    
                           
 	<!-- the first view is the where start the web flow  --> 
 	
-	<view-state id="personal" view="flows/register/signup-personal"></view-state>  
+	<view-state id="personal" view="flows/register/signup-personal" model="user">
+		<transition on="billing" to="billing" />
+	</view-state>  
+	
+	
+	<view-state id="billing" view="flows/register/signup-billing"  model="billing">
+		<transition on="personal" to="personal" />
+		<transition on="confirm" to="confirm" />
+	</view-state>  
+	
+	<view-state id="confirm" view="flows/register/signup-confirm">
+		<transition on="personal" to="personal" />
+		<transition on="success" to="success" />
+		<transition on="billing" to="billing" />
+	</view-state>  
 	
 	
 	<!-- end state -->
 	<end-state id="home" view="externalRedirect:contextRelative:/" />
+	<end-state id="success" view="flows/register/signup-success" />  
 	
-	<!-- Global transiton -->                       
+	<!-- Global transition -->                       
 	<global-transitions>
 		<transition on="home" to="home" />
 	</global-transitions>
