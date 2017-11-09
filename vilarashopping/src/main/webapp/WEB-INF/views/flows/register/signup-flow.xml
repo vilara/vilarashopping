@@ -8,26 +8,43 @@
    <!-- is the variables that flow --> 
    
    <var name="user" class="br.com.vilara.vilarashopping.dto.User_detail"/>                
-   <var name="billing" class="br.com.vilara.vilarashopping.dto.Address"/>                
+   <var name="billing" class="br.com.vilara.vilarashopping.dto.Address"/>      
+   
+   <!-- returning and adding inside the registerModel instance  -->
+   
+   <on-start>
+   		<evaluate expression="registerHandler.init()" result="flowScope.registerModel"></evaluate>
+   </on-start>          
                     
                           
 	<!-- the first view is the where start the web flow  --> 
 	
 	<view-state id="personal" view="flows/register/signup-personal" model="user">
 		<transition on="billing" to="billing" />
+		<on-exit>
+			<evaluate expression="registerHandler.addUser(flowScope.registerModel, user)" />
+		</on-exit>
 	</view-state>  
 	
 	
 	<view-state id="billing" view="flows/register/signup-billing"  model="billing">
 		<transition on="personal" to="personal" />
 		<transition on="confirm" to="confirm" />
+		<on-exit>
+			<evaluate expression="registerHandler.addBilling(flowScope.registerModel, billing)" />
+		</on-exit>
 	</view-state>  
 	
-	<view-state id="confirm" view="flows/register/signup-confirm">
+	<view-state id="confirm" view="flows/register/signup-confirm" model="flowScope.registerModel">
 		<transition on="personal" to="personal" />
-		<transition on="success" to="success" />
+		<transition on="submit" to="submit" />
 		<transition on="billing" to="billing" />
-	</view-state>  
+	</view-state> 
+	
+	<action-state id="submit">
+		<evaluate expression="registerHandler.saveAll(flowScope.registerModel)" />
+		<transition on="success" to="success" />
+	</action-state> 
 	
 	
 	<!-- end state -->

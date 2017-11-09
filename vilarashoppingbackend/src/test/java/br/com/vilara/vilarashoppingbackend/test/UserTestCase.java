@@ -59,7 +59,7 @@ public class UserTestCase {
 		address.setBilling(true);
 
 		// link the usere with address using user id
-		address.setUserId(user.getId());
+		address.setUser(user);;
 
 		// add the address
 		assertEquals("Failed to add address", true, userDAO.addAddress(address));
@@ -69,9 +69,8 @@ public class UserTestCase {
 			// create a cart for this user
 			cart = new Cart();
 			cart.setUser(user);
-
 			// add the cart
-			assertEquals("Failed to add address", true, userDAO.addCart(cart));
+			assertEquals("Failed to add address", true, userDAO.add);
 
 			// add a shipping address for this user
 			address = new Address();
@@ -94,11 +93,11 @@ public class UserTestCase {
 	}*/
 	
 	
-/*	@Test
+	@Test
 	public void testAdd() {
 		user = new User_detail();
 
-		user.setFirstName("Marcelo Martins");
+		user.setFirstName("Marcelo Martinssss");
 		user.setLastName("Vilara");
 		user.setEmail("marcelovilara@gmail.com");
 		user.setContactNumber("13981194156");
@@ -122,7 +121,7 @@ public class UserTestCase {
 		
 		
 	}
-*/
+
 	
 	
 	/*@Test
@@ -216,7 +215,7 @@ public class UserTestCase {
 		
 	}*/
 	
-	@Test
+/*	@Test
 	public void testGetAddress() {
 		
 		user = userDAO.getByEmail("marco@gmail.com");
@@ -225,7 +224,7 @@ public class UserTestCase {
 		assertEquals("Failed to add user", "Santos", userDAO.getBillingsAddress(user).getCity());
 		assertEquals("Failed to add user", 2, userDAO.listshippingAddresses(user).size());
 		
-	}
+	}*/
 	
 	
 	

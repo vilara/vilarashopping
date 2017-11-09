@@ -35,16 +35,6 @@ public class Address implements Serializable {
 	
 	@Column(name="address_line_two")
 	private String addressLinetwo;
-	
-	
-	
-	public User_detail getUser() {
-		return user;
-	}
-
-	public void setUser(User_detail user) {
-		this.user = user;
-	}
 
 	private String city;
 	
@@ -59,6 +49,14 @@ public class Address implements Serializable {
 	
 	private boolean billing;
 
+	public User_detail getUser() {
+		return user;
+	}
+	
+	public void setUser(User_detail user) {
+		this.user = user;
+	}
+	
 	public int getId() {
 		return id;
 	}

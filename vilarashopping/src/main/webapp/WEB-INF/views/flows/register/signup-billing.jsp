@@ -82,9 +82,9 @@
 						</div>
 
 						<div class="form-group">
-							<div class="col-md-offset-4 col-md-4">
-								<button type="submit" class="btn btn-primary" name="_eventId_personal">Previous - Personal<span class="glyphicon glyphicon-chevron-left"></span></button>
-								<button type="submit" class="btn btn-primary" name="_eventId_confirm">Next - Confirm<span class="glyphicon glyphicon-chevron-right"></span></button>
+							<div class="col-md-offset-3 col-md-10">
+								<button type="submit" class="btn btn-primary" name="_eventId_personal"><span class="glyphicon glyphicon-chevron-left"></span>Previous</button>
+								<button type="submit" class="btn btn-primary" name="_eventId_confirm">Next<span class="glyphicon glyphicon-chevron-right"></span></button>
 							</div>
 						</div>
 
