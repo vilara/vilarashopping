@@ -84,11 +84,27 @@
 							</div>
 						</div>
 
+						<div class="form-group">
+							<label class="control-label col-md-4" for="confirmPassword">Confirm
+								Password</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="confirmPassword"
+									id="confirmPassword" placeholder="Confirm Password"
+									class="form-control" />
+								<sf:errors path="confirmPassword" cssClass="help-block"
+									element="em" />
+							</div>
+						</div>
+
+
+
 
 						<div class="form-group">
 							<div class="col-md-offset-4 col-md-4">
 								<button type="submit" class="btn btn-primary"
-									name="_eventId_billing">Next - Billing<span class="glyphicon glyphicon-chevron-right"></span></button>
+									name="_eventId_billing">
+									Next - Billing<span class="glyphicon glyphicon-chevron-right"></span>
+								</button>
 							</div>
 						</div>
 

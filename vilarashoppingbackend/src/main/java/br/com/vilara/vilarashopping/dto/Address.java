@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Address implements Serializable {
@@ -31,17 +32,20 @@ public class Address implements Serializable {
 	
 	
 	@Column(name="address_line_one")
+	@NotBlank(message="Please enter address line")
 	private String addressLineOne;
 	
 	@Column(name="address_line_two")
+	@NotBlank(message="Please enter first name")
 	private String addressLinetwo;
-
+	
+	@NotBlank(message="Please enter city")
 	private String city;
-	
+	@NotBlank(message="Please enter the state")
 	private String state;
-	
+	@NotBlank(message="Please enter the country name")
 	private String country;
-	
+	@NotBlank(message="Please enter postal code")
 	@Column(name="postal_code")
 	private String postalCode;
 	
