@@ -26,7 +26,7 @@ public class HibernateConfig {
 	private final static String DATABASE_PASSWORD = "";
 	
 	// datasource bean will be available 
-	@Bean
+	@Bean("dataSource") // este nome é usado na configuracao do spring-security.xml
 	public DataSource getDataSource() {
 		
 		BasicDataSource dataSource = new BasicDataSource();

@@ -14,8 +14,8 @@
 						http://www.springframework.org/schema/webflow-config
            				http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd">
 
-	<context:component-scan base-package="br.com.vilara.vilarashopping.controller" />
-	<context:component-scan base-package="br.com.vilara.vilarashopping" />
+	<context:component-scan base-package="br.com.vilara.vilarashopping.controller" /> <!-- tive que retirar do dispaecher servlet para ca para resolver o stacktrace -->
+	
 
 
 	<bean  id="viewResolvers" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
