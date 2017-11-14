@@ -9,11 +9,16 @@
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:component-scan base-package="br.com.vilara.vilarashopping" />
-
+	
+	<http pattern="/resources/**" security="none" />
+	
 	<http>
+		<intercept-url pattern="/login" access="permitAll" />
 		<intercept-url pattern="/**" access="hasAuthority('USER')" />
-		<form-login />
+		
+		<form-login login-page="/login"/>
 		<logout />
+		<!-- <csrf disabled="true"/> comando para desabilitar a segurança de csfr -->
 	</http>
 
 
