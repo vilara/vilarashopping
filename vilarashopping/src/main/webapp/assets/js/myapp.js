@@ -1,72 +1,66 @@
 $(document)
 		.ready(
 				function() {
-					
+
 					// validation code for Login
-					
+
 					var $loginForm = $('#loginForm');
-					
-				
-					
-					if($loginForm.length){
-						
+
+					if ($loginForm.length) {
+
 						$loginForm.validate({
-							
+
 							rules : {
-								
-								username: {
-									required: true,
+
+								username : {
+									required : true,
 									email : true
 								},
-								
-								password: {
-									required: true
+
+								password : {
+									required : true
 								}
 							},
-							
+
 							messages : {
-								username: {
-									required: 'Please enter the username',
-									email: 'Please enter valid email address'
+								username : {
+									required : 'Please enter the username',
+									email : 'Please enter valid email address'
 								},
-								
-								password: {
-									required: 'Please  enter the password'
+
+								password : {
+									required : 'Please  enter the password'
 								}
 							},
-							
-							errorElement: 'em',
-							errorPlacement: function(error, element){
+
+							errorElement : 'em',
+							errorPlacement : function(error, element) {
 								// add the class of help-block
 								error.addClass('help-block');
 								// add the error element after the input element
 								error.insertAfter(element);
 							}
-							
-							
+
 						});
-						
-						
-									
-						
+
 					}
-					
-					//-------final validação login
-					
-					
-					//-------to tackle the csrf token usado para o security springer autorizar o ajax dos codigos abaixo
-					
+
+					// -------final validação login
+
+					// -------to tackle the csrf token usado para o security
+					// springer autorizar o ajax dos codigos abaixo
+
 					var token = $('meta[name="_csrf"]').attr('content');
 					var header = $('meta[name="_csrf_header"]').attr('content');
-					
+
 					if (token.length > 0 && header.length > 0) {
 						// set the token header for the ajax request
-						$(document).ajaxSend(function(e, xhr, options){
-							
-							xhr.setRequestHeader(header,token);
+						$(document).ajaxSend(function(e, xhr, options) {
+
+							xhr.setRequestHeader(header, token);
 						});
 					}
-					
+
 					// ------ inicio code for JQuery dataTable
 
 					var jsonUrl = window.contextRoot
@@ -138,29 +132,30 @@ $(document)
 														+ '/show/'
 														+ data
 														+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>  ';
+												
+												if(userRole='ADMIN'){
+													str += '<a href="'
+														+ window.contextRoot
+														+ '/manage/'
+														+ data
+														+ '/product" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>';
 
-												if (row.quantity < 1) {
-
-													str += '<a href="javascript:void(0)" class="btn btn-success disabled"><strike><span class="glyphicon glyphicon-shopping-cart"></span></strike></a>';
-												} else {
+												}else{
 													
-													if (userRole == 'ADMIN') {
-														str += '<a href="'
-															+ window.contextRoot
-															+ '/manage/'
-															+ data
-															+ '/product" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>';
-												
-													}else{
-														str += '<a href="'
-															+ window.contextRoot
-															+ '/cart/add/'
-															+ data
-															+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
-												
-													}
+													if (row.quantity < 1) {
 
-											}
+														str += '<a href="javascript:void(0)" class="btn btn-success disabled"><strike><span class="glyphicon glyphicon-shopping-cart"></span></strike></a>';
+													} else {
+
+													
+														str += '<a href="'
+																+ window.contextRoot
+																+ '/cart/add/'
+																+ data
+																+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+													}	
+												}
+												
 
 												return str;
 											}
@@ -261,8 +256,10 @@ $(document)
 					// -------
 
 					var $adminProductstable = $('#adminProductsTable');
-					var jsonUrl = window.contextRoot + '/json/data/admin/all/products';
-					$adminProductstable.DataTable({
+					var jsonUrl = window.contextRoot
+							+ '/json/data/admin/all/products';
+					$adminProductstable
+							.DataTable({
 
 								lengthMenu : [
 										[ 10, 30, 50, -1 ],
@@ -319,10 +316,10 @@ $(document)
 															+ row.id + '" />';
 												} else {
 													str += '<input id="active" type="checkbox" value="'
-														+ row.id + '" />';
+															+ row.id + '" />';
 												}
 												str += '<div class="slider"></div></label>';
-												
+
 												return str;
 											}
 										},
@@ -345,101 +342,110 @@ $(document)
 
 								initComplete : function() {
 									var api = this.api();
-									api.$('.switch input[type="checkbox"]').on('change',function() {
+									api
+											.$('.switch input[type="checkbox"]')
+											.on(
+													'change',
+													function() {
 
-														var checked = $("#active").prop('checked');
+														var checked = $(
+																"#active")
+																.prop('checked');
 														var checkbox = $(this);
-														var dMsg = (checked) ? 'You want to activete the product' : "You want to desactive the product";
-														var value = checkbox.prop('value');
+														var dMsg = (checked) ? 'You want to activete the product'
+																: "You want to desactive the product";
+														var value = checkbox
+																.prop('value');
 
-														bootbox.confirm({
+														bootbox
+																.confirm({
 																	size : 'medium',
 																	title : 'Product actvation & desactivation',
 																	message : dMsg,
-																	callback : function(confirmed) {
+																	callback : function(
+																			confirmed) {
 																		if (confirmed) {
-																			console.log(value);
-																			
-																			var activationUrl = window.contextRoot + '/manage/product/' + value + '/activation';
-																			
-																			$.post(activationUrl, function(data){
-																				bootbox.alert({
-																					size : 'medium',
-																					title : 'Information',
-																					message : data
-																				});
-																			});
-																			
-																			
+																			console
+																					.log(value);
+
+																			var activationUrl = window.contextRoot
+																					+ '/manage/product/'
+																					+ value
+																					+ '/activation';
+
+																			$
+																					.post(
+																							activationUrl,
+																							function(
+																									data) {
+																								bootbox
+																										.alert({
+																											size : 'medium',
+																											title : 'Information',
+																											message : data
+																										});
+																							});
+
 																		} else {
-																			checkbox.prop('checked',!checked)
+																			checkbox
+																					.prop(
+																							'checked',
+																							!checked)
 																		}
 																	}
 
 																});
-														
-														
-														
+
 													});
 								}
-								
-								
-								
 
 							});
-					
-					
-					//--------------------------------
+
+					// --------------------------------
 					// validation code for category
-					
+
 					var $categoryForm = $('#categoryForm');
-					
-					if($categoryForm.length){
-						$categoryForm.validate({
-							
-							rules : {
-								
-								name: {
-									required: true,
-									minlength: 2
-								},
-								
-								description: {
-									required: true,
-									minlength: 2
-								}
-							},
-							
-							messages : {
-								name: {
-									required: 'Please add the category name',
-									minlength: 'The category name should not be less than 2 characters'
-								},
-								
-								description: {
-									required: 'Please add the category descripton',
-									minlength: 'The category name should not be less than 2 characters'
-								}
-							},
-							
-							errorElement: 'em',
-							errorPlacement: function(error, element){
-								// add the class of help-block
-								error.addClass('help-block');
-								// add the error element after the input element
-								error.insertAfter(element);
-							}
-							
-							
-						});
-						
-						
-									
-						
+
+					if ($categoryForm.length) {
+						$categoryForm
+								.validate({
+
+									rules : {
+
+										name : {
+											required : true,
+											minlength : 2
+										},
+
+										description : {
+											required : true,
+											minlength : 2
+										}
+									},
+
+									messages : {
+										name : {
+											required : 'Please add the category name',
+											minlength : 'The category name should not be less than 2 characters'
+										},
+
+										description : {
+											required : 'Please add the category descripton',
+											minlength : 'The category name should not be less than 2 characters'
+										}
+									},
+
+									errorElement : 'em',
+									errorPlacement : function(error, element) {
+										// add the class of help-block
+										error.addClass('help-block');
+										// add the error element after the input
+										// element
+										error.insertAfter(element);
+									}
+
+								});
+
 					}
-					
-					
-					
-				
-					
+
 				});
