@@ -153,15 +153,18 @@
 
 
 		<div class="col-xs-12">
-			<h3>Available</h3>
+			<h3>Available Products</h3>
 			<hr />
 		</div>
 
 		<div class="col-xs-12">
-			<div style="overflow: auto">
-
+		<div class="container-fluid">
+			<div class="table-responsive">
+			
+			
+					<!-- Products table for admin  -->
 				<table id="adminProductsTable"
-					class="table table-striped table-bordered" style="width: 99%">
+					class="table table-striped table-bordered" >
 					<thead>
 						<tr>
 							<th>Id</th>
@@ -190,6 +193,10 @@
 						<th>Edit</th>
 					</tfoot>
 				</table>
+			
+			</div>
+		</div>
+		
 			</div>
 
 

@@ -42,37 +42,48 @@
 
 			<div class="row">
 
-				<div class="col-lg-12">
+				<div class="col-xs-12">
 
-					<table class="table table-striped" cellspacing="0" width="100%"
-						id="productListTable">
-						
-						<!-- Material Design  -->
-					<!-- 	<table id="productListTable" class="mdl-data-table" width="100%" cellspacing="0"> -->
+					<div class="container-fluid">
 
-						<thead>
-							<tr>
-								<th></th>
-								<th>Name</th>
-								<th>Brand</th>
-								<th>Price</th>
-								<th>Qtde</th>
-								<th></th>
-							</tr>
-						</thead>
+						<div class="table-responsive">
 
-						<tfoot>
-							<tr>
-								<th></th>
-								<th>Name</th>
-								<th>Brand</th>
-								<th>Price</th>
-								<th>Qtde</th>
-								<th></th>
-							</tr>
-						</tfoot>
+							<table class="table table-striped table-bordered"
+								id="productListTable">
 
-					</table>
+
+
+								<!-- Material Design  -->
+								<!-- 	<table id="productListTable" class="mdl-data-table" width="100%" cellspacing="0"> -->
+
+								<thead>
+									<tr>
+										<th></th>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Price</th>
+										<th>Qtde</th>
+										<th></th>
+									</tr>
+								</thead>
+
+								<tfoot>
+									<tr>
+										<th></th>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Price</th>
+										<th>Qtde</th>
+										<th></th>
+									</tr>
+								</tfoot>
+
+							</table>
+						</div>
+
+					</div>
+
+
 
 				</div>
 

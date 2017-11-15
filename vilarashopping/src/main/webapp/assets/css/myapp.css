@@ -98,3 +98,7 @@ custom elements  */
 	height: 50px;
 	width: 50px;
 }
+
+.table-responsive {
+	overflow-x: inherit; 
+}
