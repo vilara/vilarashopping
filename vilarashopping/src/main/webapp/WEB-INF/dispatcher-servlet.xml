@@ -12,7 +12,7 @@
 						http://www.springframework.org/schema/mvc 
 						http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 						http://www.springframework.org/schema/webflow-config
-           				http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd">
+           				http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
 
 	<context:component-scan base-package="br.com.vilara.vilarashopping.controller" /> <!-- tive que retirar do dispaecher servlet para ca para resolver o stacktrace -->
 	
