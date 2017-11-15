@@ -133,7 +133,7 @@ $(document)
 														+ data
 														+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>  ';
 												
-												if(userRole='ADMIN'){
+												if(userRole=='ADMIN'){
 													str += '<a href="'
 														+ window.contextRoot
 														+ '/manage/'

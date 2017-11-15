@@ -11,7 +11,7 @@ import br.com.vilara.vilarashopping.dao.ProductDAO;
 import br.com.vilara.vilarashopping.dto.Category;
 import br.com.vilara.vilarashopping.dto.Product;
 
-@Repository("ProductDAO")
+@Repository("productDAO")
 @Transactional
 public class ProductDAOImpl implements ProductDAO {
 

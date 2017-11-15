@@ -18,8 +18,5 @@ public interface User_detailDAO {
 	Address getBillingsAddress(User_detail user);
 	List<Address> listshippingAddresses(User_detail user);
 	
-	
-	// update a cart
-	boolean updateCart(Cart cart);
 
 }

@@ -13,7 +13,7 @@ import br.com.vilara.vilarashopping.dto.Address;
 import br.com.vilara.vilarashopping.dto.Cart;
 import br.com.vilara.vilarashopping.dto.User_detail;
 
-@Repository("User_detailDAO")
+@Repository("user_detailDAO")
 @Transactional
 public class User_detailDAOImpl implements User_detailDAO {
 
@@ -43,16 +43,6 @@ public class User_detailDAOImpl implements User_detailDAO {
 		}
 	}
 
-	@Override
-	public boolean updateCart(Cart cart) {
-		try {
-			sessionFactory.getCurrentSession().update(cart);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
 
 	@Override
 	public User_detail getByEmail(String email) {
