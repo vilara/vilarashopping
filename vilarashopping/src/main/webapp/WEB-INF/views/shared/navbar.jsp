@@ -36,14 +36,13 @@
 				<li class="dropdown" id="userModel">
 				<a
 					class="btn btn-default dropdown-toggle" href="javascript:void(0)"
-					id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="true"> Full name <span class="caret"></span>
+					id="dropdownMenu1" data-toggle="dropdown"> ${userModel.fullName } <span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
 							<li><a href="${contextRoot}/cart/show"> <span
 									class="glyphicon glyphicon-shopping-cart"></span>&#160;<span
-									class="badge">0</span> - &#8377;
-									0.0
+									class="badge">${userModel.cart.cartLines }</span> - &#8377;
+									${userModel.cart.grandTotal }
 							</a></li>
 							<li role="separator" class="divider"></li>
 						<li id="logout"><a href="${contextRoot}/logout">Logout</a></li>
