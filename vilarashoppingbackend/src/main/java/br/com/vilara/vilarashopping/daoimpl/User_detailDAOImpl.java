@@ -65,7 +65,7 @@ public class User_detailDAOImpl implements User_detailDAO {
 							.getSingleResult();
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			
 			return null;
 		}

@@ -70,3 +70,6 @@
 		</div>
 	</div>
 </nav>
+<script>
+		window.userRole = '${userModel.role}';
+	</script>
