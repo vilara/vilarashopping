@@ -17,38 +17,50 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td data-th="Product">
-							<div class="row">
-								<div class="col-sm-2 hidden-xs">
-									<img src="http://placehold.it/100x100" alt="..."
-										class="img-responsive" />
+
+					<c:forEach items="${cartLines }" var="cartline">
+
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs">
+										<img src="${images}/${cartline.product.code}.jpg" alt="${cartline.product.name}"
+											class="img-responsive cartImg" />
+									</div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">${cartline.product.name}
+										<c:if test="${cartline.available == false}">
+										
+											<strong class="unavailable">(Not Available)</strong>
+										
+										</c:if>
+										</h4>
+										<p>Brand - ${cartline.product.name}</p>
+										<p>Description - ${cartline.product.description}</p>
+									</div>
 								</div>
-								<div class="col-sm-10">
-									<h4 class="nomargin">Product 1</h4>
-									<p>Quis aute iure reprehenderit in voluptate velit esse
-										cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit
-										amet.</p>
-								</div>
-							</div>
-						</td>
-						<td data-th="Price">$1.99</td>
-						<td data-th="Quantity"><input type="number"
-							class="form-control text-center" value="1"></td>
-						<td data-th="Subtotal" class="text-center">1.99</td>
-						<td class="actions" data-th="">
-							<button class="btn btn-info btn-sm">
-								<span class="glyphicon glyphicon-refresh"></span>
-							</button>
-							<button class="btn btn-danger btn-sm">
-								<span class="glyphicon glyphicon-trash"></span>
-							</button>
-						</td>
-					</tr>
+							</td>
+							<td data-th="Price">&#8377; ${cartline.buyingPrice}</td>
+							<td data-th="Quantity"><input type="number"
+								class="form-control text-center" value="${cartline.productCount }"></td>
+							<td data-th="Subtotal" class="text-center">&#8377; ${cartline.total }</td>
+							<td class="actions" data-th="">
+								<button class="btn btn-info btn-sm">
+									<span class="glyphicon glyphicon-refresh"></span>
+								</button>
+								<button class="btn btn-danger btn-sm">
+									<span class="glyphicon glyphicon-trash"></span>
+								</button>
+							</td>
+						</tr>
+
+
+					</c:forEach>
+
 				</tbody>
 				<tfoot>
 					<tr class="visible-xs">
-						<td class="text-center"><strong>Total 1.99</strong></td>
+						<td class="text-center"><strong>&#8377; ${userModel.cart.grandTotal}</strong></td>
 					</tr>
 					<tr>
 						<td><a href="#" class="btn btn-warning"><span
@@ -56,7 +68,7 @@
 								Shopping</a></td>
 						<td colspan="2" class="hidden-xs"></td>
 						<td class="hidden-xs text-center"><strong>Total
-								$1.99</strong></td>
+								&#8377; ${userModel.cart.grandTotal}</strong></td>
 						<td><a href="#" class="btn btn-success btn-block">Checkout
 								<span class="glyphicon glyphicon-chevron-right"></span>
 						</a></td>
