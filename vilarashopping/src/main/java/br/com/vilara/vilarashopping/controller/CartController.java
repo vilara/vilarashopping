@@ -12,16 +12,16 @@ import br.com.vilara.vilarashopping.service.CartService;
 @Controller
 @RequestMapping("/cart")
 public class CartController {
-	
+
 	@Autowired
 	private CartService cartService;
 
 	@RequestMapping("/show")
-	public ModelAndView showCart(@RequestParam(name="result", required=false)String result) {
-		
+	public ModelAndView showCart(@RequestParam(name = "result", required = false) String result) {
+
 		ModelAndView mv = new ModelAndView("page");
-		
-		if (result!=null) {
+
+		if (result != null) {
 			switch (result) {
 			case "update":
 				mv.addObject("message", "Cartline has been update successfully!");
@@ -37,32 +37,47 @@ public class CartController {
 				break;
 			}
 		}
-		
+
 		mv.addObject("title", "User Cart");
 		mv.addObject("userClickShowCart", true);
 		mv.addObject("cartLines", cartService.getCartLInes());
-		
+
 		return mv;
 	}
-	
+
 	@RequestMapping("/{cartLineId}/update")
 	public String updateCart(@PathVariable int cartLineId, @RequestParam int count) {
-		
+
 		String response = cartService.updateCartLine(cartLineId, count);
-		return "redirect:/cart/show?"+response;
+		return "redirect:/cart/show?" + response;
 	}
-	
+
 	@RequestMapping("/{cartLineId}/delete")
 	public String deleteCart(@PathVariable int cartLineId) {
-		
+
 		String response = cartService.deleteCartLine(cartLineId);
-		return "redirect:/cart/show?"+response;
+		return "redirect:/cart/show?" + response;
 	}
-	
+
 	@RequestMapping("/add/{productId}/product")
 	public String addCart(@PathVariable int productId) {
-		
+
 		String response = cartService.addCartLine(productId);
-		return "redirect:/cart/show?"+response;
+		return "redirect:/cart/show?" + response;
+	}
+
+	/*
+	 * after validating it redirect to checkout if result received is success
+	 * proceed to checkout else display the message to the user about the changes in
+	 * cart page
+	 */
+	@RequestMapping("/validate")
+	public String validateCart() {
+		/*String response = cartService.validateCartLine();
+		if (!response.equals("result=success")) {
+			return "redirect:/cart/show?" + response;
+		} else {
+		}*/
+		return "redirect:/cart/checkout";
 	}
 }
