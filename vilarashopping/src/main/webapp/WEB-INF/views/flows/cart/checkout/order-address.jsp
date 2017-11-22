@@ -54,8 +54,6 @@
 								</div>
 							</div>
 
-							<%--
---%>
 							<div class="form-group">
 								<label class="control-label col-md-4" for="addressLinetwo">Address Line Two</label>
 								<div class="col-md-8">

@@ -7,11 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.vilara.vilarashopping.dao.CartLineDAO;
 import br.com.vilara.vilarashopping.service.CartService;
 
 @Controller
 @RequestMapping("/cart")
 public class CartController {
+	
+	@Autowired
+	private CartLineDAO cartLineDAO;
 
 	@Autowired
 	private CartService cartService;
@@ -28,6 +32,9 @@ public class CartController {
 				break;
 			case "added":
 				mv.addObject("message", "Cartline has been added successfully!");
+				break;
+			case "modified":
+				mv.addObject("message", "One or more items inside cart has been modified!");
 				break;
 			case "deleted":
 				mv.addObject("message", "Cartline has been deleted successfully!");
@@ -73,11 +80,11 @@ public class CartController {
 	 */
 	@RequestMapping("/validate")
 	public String validateCart() {
-		/*String response = cartService.validateCartLine();
+		String response = cartService.validateCartLine();
 		if (!response.equals("result=success")) {
 			return "redirect:/cart/show?" + response;
 		} else {
-		}*/
+		}
 		return "redirect:/cart/checkout";
 	}
 }
