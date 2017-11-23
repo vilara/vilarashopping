@@ -31,7 +31,7 @@ public class UserTestCase {
 		context.scan("br.com.vilara.vilarashopping");
 		context.refresh();
 
-		userDAO = (User_detailDAO) context.getBean("User_detailDAO");
+		userDAO = (User_detailDAO) context.getBean("user_detailDAO");
 
 	}
 
@@ -93,7 +93,7 @@ public class UserTestCase {
 	}*/
 	
 	
-	@Test
+/*	@Test
 	public void testAdd() {
 		user = new User_detail();
 
@@ -120,7 +120,7 @@ public class UserTestCase {
 		
 		
 		
-	}
+	}*/
 
 	
 	
@@ -215,7 +215,7 @@ public class UserTestCase {
 		
 	}*/
 	
-/*	@Test
+	@Test
 	public void testGetAddress() {
 		
 		user = userDAO.getByEmail("marco@gmail.com");
@@ -224,7 +224,7 @@ public class UserTestCase {
 		assertEquals("Failed to add user", "Santos", userDAO.getBillingsAddress(user).getCity());
 		assertEquals("Failed to add user", 2, userDAO.listshippingAddresses(user).size());
 		
-	}*/
+	}
 	
 	
 	

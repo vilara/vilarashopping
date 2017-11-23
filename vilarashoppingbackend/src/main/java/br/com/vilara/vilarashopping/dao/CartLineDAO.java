@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.vilara.vilarashopping.dto.Cart;
 import br.com.vilara.vilarashopping.dto.CartLine;
+import br.com.vilara.vilarashopping.dto.OrderDetail;
 
 
 
@@ -25,7 +26,7 @@ public interface CartLineDAO {
 	public List<CartLine> listAvailable(int cartId);
 	
 	// adding order details
-//	boolean addOrderDetail(OrderDetail orderDetail);
+	boolean addOrderDetail(OrderDetail orderDetail);
 
 	
 }

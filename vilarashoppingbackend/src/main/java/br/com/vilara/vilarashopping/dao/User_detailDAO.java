@@ -11,6 +11,7 @@ public interface User_detailDAO {
 	// add an user
 	boolean addUser(User_detail user);
 	User_detail getByEmail(String email);
+	Address getAddress(int addressId);
 	
 	
 	// add an address

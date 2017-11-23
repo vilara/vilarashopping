@@ -13,7 +13,7 @@
 					<c:forEach items="${addresses}" var="address">					
 						<div class="cols-xs-12">
 							<h3>${address.addressLineOne}</h3>
-							<h3>${address.addressLineTwo}</h3>
+							<h3>${address.addressLinetwo}</h3>
 							<h4>${address.city} - ${address.postalCode}</h4>
 							<h4>${address.state} - ${address.country}</h4>
 							<hr/>

@@ -97,4 +97,15 @@ public class User_detailDAOImpl implements User_detailDAO {
 		}
 	}
 
+	@Override
+	public Address getAddress(int addressId) {
+		try {			
+			return sessionFactory.getCurrentSession().get(Address.class, addressId);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+
 }

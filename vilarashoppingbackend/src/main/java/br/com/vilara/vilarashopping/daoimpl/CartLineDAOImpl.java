@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.vilara.vilarashopping.dao.CartLineDAO;
 import br.com.vilara.vilarashopping.dto.Cart;
 import br.com.vilara.vilarashopping.dto.CartLine;
+import br.com.vilara.vilarashopping.dto.OrderDetail;
 
 @Repository("cartLineDAO")
 @Transactional
@@ -103,6 +104,17 @@ public class CartLineDAOImpl implements CartLineDAO {
 									.setParameter("cartId", cartId)
 									.setParameter("available", true)
 										.getResultList();
+	}
+
+	@Override
+	public boolean addOrderDetail(OrderDetail orderDetail) {
+		try {			
+			sessionFactory.getCurrentSession().persist(orderDetail);			
+			return true;
+		}
+		catch(Exception ex) {
+			return false;
+		}
 	}
 
 /*	@Override
